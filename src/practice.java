@@ -57,12 +57,21 @@ public class practice {
 //        int [][] matrix = {{1,2,3},{4,5,6}};
 //        System.out.println(matrix[0][1]);
 
-        Student s1 = new Student("Jaishree", 22, 9.5);
-        System.out.println(s1.getAge());
-        System.out.println(s1.getCgpa());
-        System.out.println(s1.getName());
+//        Student s1 = new Student("Jaishree", 22, 9.5);
+//        System.out.println(s1.getAge());
+//        System.out.println(s1.getCgpa());
+//        System.out.println(s1.getName());
+//
+//        Student s2 = new Student();
 
-        Student s2 = new Student();
+        //Loop Practice:
+        int n=5;
+        for(int i=1; i<=n; i++){
+            for(int j=1; j<=i; j++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
 
 
 
