@@ -7,10 +7,10 @@ public class BinaryPalindrome {
             reversed |= (x&1);
             x >>= 1;
         }
-        return reversed == original;
+        return original == reversed;
     }
 
     public static void main(String[] args) {
-        System.out.println(isBP(5));
+        System.out.println(isBP(7));
     }
 }
