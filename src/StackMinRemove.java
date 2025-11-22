@@ -1,0 +1,2 @@
+public class StackMinRemove {
+}
