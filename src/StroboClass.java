@@ -23,6 +23,6 @@ public class StroboClass {
     }
 
     public static void main(String[] args) {
-        System.out.println(strobo("6119"));
+        System.out.println(strobo("6889"));
     }
 }

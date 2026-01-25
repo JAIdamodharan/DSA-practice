@@ -8,7 +8,13 @@ public class HourGlass{
         }
         for(int i=0; i< r-2; i++){
             for(int j=0; j< c-2; j++){
-                sum = (mat[i][j]+mat[i][j+1]+mat[i][j+2])+(mat[i+1][j+1])+(mat[i+2][j]+mat[i+2][j+1]+mat[i+2][j+2]);
+                sum = (mat[i][j] +
+                        mat[i][j+1]+
+                        mat[i][j+2])+
+                        (mat[i+1][j+1])+
+                        (mat[i+2][j]+
+                        mat[i+2][j+1]+
+                        mat[i+2][j+2]);
                 maxSum = Math.max(sum, maxSum);
             }
         }
