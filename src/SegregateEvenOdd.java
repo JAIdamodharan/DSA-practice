@@ -1,62 +1,44 @@
-public class SegregateEvenOdd {
+class OddEvenLinkedList {
 
-    static class Node {
-        int data;
-        Node next;
+    // Definition for singly-linked list.
+    static class ListNode {
+        int val;
+        ListNode next;
 
-        Node(int data) {
-            this.data = data;
+        ListNode(int val) {
+            this.val = val;
             this.next = null;
         }
     }
 
-    // Function to segregate even and odd nodes
-    static Node segregateEvenOdd(Node head) {
-        Node evenStart = null, evenEnd = null;
-        Node oddStart = null, oddEnd = null;
+    // Function to rearrange odd and even indexed nodes
+    public static ListNode oddEvenList(ListNode head) {
+        if (head == null || head.next == null)
+            return head;
 
-        Node curr = head;
+        ListNode odd = head;          // 1st node
+        ListNode even = head.next;    // 2nd node
+        ListNode evenHead = even;     // store start of even list
 
-        while (curr != null) {
-            int val = curr.data;
+        while (even != null && even.next != null) {
+            odd.next = even.next;     // link odd nodes
+            odd = odd.next;
 
-            if (val % 2 == 0) {
-                if (evenStart == null) {
-                    evenStart = curr;
-                    evenEnd = evenStart;
-                } else {
-                    evenEnd.next = curr;
-                    evenEnd = evenEnd.next;
-                }
-            } else {
-                if (oddStart == null) {
-                    oddStart = curr;
-                    oddEnd = oddStart;
-                } else {
-                    oddEnd.next = curr;
-                    oddEnd = oddEnd.next;
-                }
-            }
-            curr = curr.next;
+            even.next = odd.next;     // link even nodes
+            even = even.next;
         }
 
-        // If there are no even or no odd nodes
-        if (evenStart == null)
-            return oddStart;
-        if (oddStart == null)
-            return evenStart;
-
-        evenEnd.next = oddStart;
-        oddEnd.next = null;
-
-        return evenStart;
+        odd.next = evenHead;          // attach even list after odd list
+        return head;
     }
 
-    // Function to print the linked list
-    static void printList(Node head) {
-        Node temp = head;
+    // Utility function to print the linked list
+    public static void printList(ListNode head) {
+        ListNode temp = head;
         while (temp != null) {
-            System.out.print(temp.data + " ");
+            System.out.print(temp.val);
+            if (temp.next != null)
+                System.out.print(" -> ");
             temp = temp.next;
         }
         System.out.println();
@@ -65,21 +47,19 @@ public class SegregateEvenOdd {
     // Main function
     public static void main(String[] args) {
 
-        // Creating linked list: 17 -> 15 -> 8 -> 12 -> 10 -> 5 -> 4
-        Node head = new Node(17);
-        head.next = new Node(15);
-        head.next.next = new Node(8);
-        head.next.next.next = new Node(12);
-        head.next.next.next.next = new Node(10);
-        head.next.next.next.next.next = new Node(5);
-        head.next.next.next.next.next.next = new Node(4);
+        // Example 1: [1,2,3,4,5]
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+        head.next.next.next.next = new ListNode(5);
 
-        System.out.println("Original List:");
+        System.out.print("Original List: ");
         printList(head);
 
-        head = segregateEvenOdd(head);
+        head = oddEvenList(head);
 
-        System.out.println("After Segregating Even and Odd:");
+        System.out.print("Odd-Even List: ");
         printList(head);
     }
 }

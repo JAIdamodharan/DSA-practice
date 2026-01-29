@@ -16,7 +16,6 @@ public class MinStack{
             minStack.push(val);
         }
     }
-
     //pop
     public void pop(){
         if(mainStack.isEmpty()) return;
@@ -25,23 +24,24 @@ public class MinStack{
             minStack.pop();
         }
     }
-
     //top
     public int top(){
         if(mainStack.isEmpty()){
-            throw new RuntimeException("empty stack!");
+            throw new RuntimeException("Stack empty!");
         }
         return mainStack.peek();
     }
     //getMin
     public int getMin(){
         if(minStack.isEmpty()){
-            throw new RuntimeException("empty stack!");
+            throw new RuntimeException("stack empty!");
         }
         return minStack.peek();
     }
+
     public static void main(String[] args) {
         MinStack ms = new MinStack();
+
         ms.push(5);
         ms.push(2);
         ms.push(10);
@@ -58,6 +58,5 @@ public class MinStack{
 
         System.out.println(ms.top());
         System.out.println(ms.getMin());
-
     }
 }
