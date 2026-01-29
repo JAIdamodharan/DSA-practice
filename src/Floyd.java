@@ -35,7 +35,7 @@ public class Floyd {
         n2.next = n3;
         n3.next = n4;
         n4.next = n5;
-        n5.next = null;
+        n5.next = n2;
 
         Node head = n1;
 
